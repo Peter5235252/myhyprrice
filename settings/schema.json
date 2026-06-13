@@ -1,0 +1,2272 @@
+{
+  "animations.enabled": {
+    "type": "bool",
+    "category": "animations",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "animations.workspace_wraparound": {
+    "type": "bool",
+    "category": "animations",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "binds.allow_pin_fullscreen": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.allow_workspace_cycles": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.disable_keybind_grabbing": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.drag_threshold": {
+    "type": "int",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "binds.focus_preferred_method": {
+    "type": "int",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "binds.hide_special_on_workspace_change": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.ignore_group_lock": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.movefocus_cycles_fullscreen": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.movefocus_cycles_groupfirst": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.pass_mouse_when_bound": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.scroll_event_delay": {
+    "type": "int",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "binds.window_direction_monitor_fallback": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": true
+  },
+  "binds.workspace_back_and_forth": {
+    "type": "bool",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": false
+  },
+  "binds.workspace_center_on": {
+    "type": "int",
+    "category": "binds",
+    "file": "keybinds.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.default_monitor": {
+    "type": "string",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "cursor.enable_hyprcursor": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "cursor.hide_on_key_press": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "cursor.hide_on_tablet": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "cursor.hide_on_touch": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "cursor.hotspot_padding": {
+    "type": "int",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.inactive_timeout": {
+    "type": "float",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "cursor.invisible": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "cursor.min_refresh_rate": {
+    "type": "int",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.no_break_fs_vrr": {
+    "type": "int",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.no_hardware_cursors": {
+    "type": "int",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.no_warps": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "cursor.persistent_warps": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "cursor.sync_gsettings_theme": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "cursor.use_cpu_buffer": {
+    "type": "int",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.warp_back_after_non_mouse_input": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "cursor.warp_on_change_workspace": {
+    "type": "int",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.warp_on_toggle_special": {
+    "type": "int",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "cursor.zoom_detached_camera": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "cursor.zoom_disable_aa": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "cursor.zoom_factor": {
+    "type": "float",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "cursor.zoom_rigid": {
+    "type": "bool",
+    "category": "cursor",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.colored_stdout_logs": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "debug.damage_blink": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.damage_tracking": {
+    "type": "int",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "debug.disable_logs": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "debug.disable_scale_checks": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.disable_time": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "debug.ds_handle_same_buffer": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "debug.ds_handle_same_buffer_fifo": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "debug.enable_stdout_logs": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.error_limit": {
+    "type": "int",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "debug.error_position": {
+    "type": "int",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "debug.fifo_pending_workaround": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.full_cm_proto": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.gl_debugging": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.invalidate_fp16": {
+    "type": "int",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "debug.log_damage": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.manual_crash": {
+    "type": "int",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "debug.overlay": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.pass": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.render_solitary_wo_damage": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.suppress_errors": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "debug.vfr": {
+    "type": "bool",
+    "category": "debug",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "decoration.active_opacity": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.brightness": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.contrast": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.enabled": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "decoration.blur.ignore_opacity": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "decoration.blur.input_methods": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "decoration.blur.input_methods_ignorealpha": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.new_optimizations": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "decoration.blur.noise": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.passes": {
+    "type": "int",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "decoration.blur.popups": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "decoration.blur.popups_ignorealpha": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.size": {
+    "type": "int",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "decoration.blur.special": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "decoration.blur.vibrancy": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.vibrancy_darkness": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.blur.xray": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "decoration.border_part_of_window": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "decoration.dim_around": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.dim_inactive": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "decoration.dim_modal": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "decoration.dim_special": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.dim_strength": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.fullscreen_opacity": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.glow.color": {
+    "type": "string",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "decoration.glow.color_inactive": {
+    "type": "string",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "decoration.glow.enabled": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "decoration.glow.range": {
+    "type": "int",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "decoration.glow.render_power": {
+    "type": "int",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "decoration.inactive_opacity": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.rounding": {
+    "type": "int",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "decoration.rounding_power": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.screen_shader": {
+    "type": "string",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "decoration.shadow.color": {
+    "type": "string",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "decoration.shadow.color_inactive": {
+    "type": "string",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "decoration.shadow.enabled": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "decoration.shadow.offset": {
+    "type": "vec2",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": "0x0"
+  },
+  "decoration.shadow.range": {
+    "type": "int",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "decoration.shadow.render_power": {
+    "type": "int",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "decoration.shadow.scale": {
+    "type": "float",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "decoration.shadow.sharp": {
+    "type": "bool",
+    "category": "decoration",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "dwindle.default_split_ratio": {
+    "type": "float",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "dwindle.force_split": {
+    "type": "int",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "dwindle.permanent_direction_override": {
+    "type": "bool",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "dwindle.precise_mouse_move": {
+    "type": "bool",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "dwindle.preserve_split": {
+    "type": "bool",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "dwindle.smart_resizing": {
+    "type": "bool",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "dwindle.smart_split": {
+    "type": "bool",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "dwindle.special_scale_factor": {
+    "type": "float",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "dwindle.split_bias": {
+    "type": "int",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "dwindle.split_width_multiplier": {
+    "type": "float",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "dwindle.use_active_for_splits": {
+    "type": "bool",
+    "category": "dwindle",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "ecosystem.enforce_permissions": {
+    "type": "bool",
+    "category": "ecosystem",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "ecosystem.no_donation_nag": {
+    "type": "bool",
+    "category": "ecosystem",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "ecosystem.no_update_news": {
+    "type": "bool",
+    "category": "ecosystem",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "experimental.wp_cm_1_2": {
+    "type": "bool",
+    "category": "experimental",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "general.allow_tearing": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "general.border_size": {
+    "type": "int",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "general.col.active_border": {
+    "type": "gradient",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "general.col.inactive_border": {
+    "type": "gradient",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "general.col.nogroup_border": {
+    "type": "gradient",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "general.col.nogroup_border_active": {
+    "type": "gradient",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "general.extend_border_grab_area": {
+    "type": "int",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "general.float_gaps": {
+    "type": "css_gaps",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": "0 0 0 0\nset: false"
+  },
+  "general.gaps_in": {
+    "type": "css_gaps",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": "4 4 4 4\nset: true"
+  },
+  "general.gaps_out": {
+    "type": "css_gaps",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": "8 8 8 8\nset: true"
+  },
+  "general.gaps_workspaces": {
+    "type": "int",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "general.hover_icon_on_border": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "general.layout": {
+    "type": "string",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "general.locale": {
+    "type": "string",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "general.modal_parent_blocking": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "general.no_focus_fallback": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "general.resize_corner": {
+    "type": "int",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "general.resize_on_border": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "general.snap.border_overlap": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "general.snap.enabled": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "general.snap.monitor_gap": {
+    "type": "int",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "general.snap.respect_gaps": {
+    "type": "bool",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "general.snap.window_gap": {
+    "type": "int",
+    "category": "general",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "gestures.close_max_timeout": {
+    "type": "int",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "gestures.scrolling.move_snap_cursor": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "gestures.scrolling.move_snap_to_grid": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "gestures.workspace_swipe_cancel_ratio": {
+    "type": "float",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "gestures.workspace_swipe_create_new": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "gestures.workspace_swipe_direction_lock": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "gestures.workspace_swipe_direction_lock_threshold": {
+    "type": "int",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "gestures.workspace_swipe_distance": {
+    "type": "int",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "gestures.workspace_swipe_forever": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "gestures.workspace_swipe_invert": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "gestures.workspace_swipe_min_speed_to_force": {
+    "type": "int",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "gestures.workspace_swipe_touch": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "gestures.workspace_swipe_touch_invert": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "gestures.workspace_swipe_use_r": {
+    "type": "bool",
+    "category": "gestures",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "group.auto_group": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.col.border_active": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.col.border_inactive": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.col.border_locked_active": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.col.border_locked_inactive": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.drag_into_group": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.focus_removed_window": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.group_on_movetoworkspace": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "group.groupbar.blur": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "group.groupbar.col.active": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.col.inactive": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.col.locked_active": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.col.locked_inactive": {
+    "type": "gradient",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.enabled": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.groupbar.font_family": {
+    "type": "string",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.font_size": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.font_weight_active": {
+    "type": "int_or_string",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0
+  },
+  "group.groupbar.font_weight_inactive": {
+    "type": "int_or_string",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0
+  },
+  "group.groupbar.gaps_in": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.gaps_out": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.gradient_round_only_edges": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.groupbar.gradient_rounding": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.gradient_rounding_power": {
+    "type": "float",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "group.groupbar.gradients": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "group.groupbar.height": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.indicator_gap": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.indicator_height": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.keep_upper_gap": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.groupbar.middle_click_close": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.groupbar.priority": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.render_titles": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.groupbar.round_only_edges": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.groupbar.rounding": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.rounding_power": {
+    "type": "float",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "group.groupbar.scrolling": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.groupbar.stacked": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "group.groupbar.text_color": {
+    "type": "string",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.text_color_inactive": {
+    "type": "string",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.text_color_locked_active": {
+    "type": "string",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.text_color_locked_inactive": {
+    "type": "string",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "group.groupbar.text_offset": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.groupbar.text_padding": {
+    "type": "int",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "group.insert_after_current": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.merge_floated_into_tiled_on_groupbar": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "group.merge_groups_on_drag": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "group.merge_groups_on_groupbar": {
+    "type": "bool",
+    "category": "group",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "input.accel_profile": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.emulate_discrete_scroll": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.float_switch_override_focus": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.focus_on_close": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.follow_mouse": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.follow_mouse_shrink": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.follow_mouse_threshold": {
+    "type": "float",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "input.force_no_accel": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.kb_file": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.kb_layout": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.kb_model": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.kb_options": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.kb_rules": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.kb_variant": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.left_handed": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.mouse_refocus": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "input.natural_scroll": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.numlock_by_default": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.off_window_axis_events": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.repeat_delay": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.repeat_rate": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.resolve_binds_by_sym": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.rotation": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.scroll_button": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.scroll_button_lock": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.scroll_factor": {
+    "type": "float",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "input.scroll_method": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.scroll_points": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.sensitivity": {
+    "type": "float",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "input.special_fallthrough": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.tablet.absolute_region_position": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.tablet.active_area_position": {
+    "type": "vec2",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": "0x0"
+  },
+  "input.tablet.active_area_size": {
+    "type": "vec2",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": "0x0"
+  },
+  "input.tablet.left_handed": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.tablet.output": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.tablet.region_position": {
+    "type": "vec2",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": "0x0"
+  },
+  "input.tablet.region_size": {
+    "type": "vec2",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": "0x0"
+  },
+  "input.tablet.relative_input": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.tablet.transform": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.touchdevice.enabled": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "input.touchdevice.output": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.touchdevice.transform": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.touchpad.clickfinger_behavior": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.touchpad.disable_while_typing": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "input.touchpad.drag_3fg": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.touchpad.drag_lock": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "input.touchpad.flip_x": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.touchpad.flip_y": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.touchpad.middle_button_emulation": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.touchpad.natural_scroll": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.touchpad.scroll_factor": {
+    "type": "float",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "input.touchpad.tap_and_drag": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "input.touchpad.tap_button_map": {
+    "type": "string",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "input.touchpad.tap_to_click": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "input.virtualkeyboard.release_pressed_on_close": {
+    "type": "bool",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "input.virtualkeyboard.share_states": {
+    "type": "int",
+    "category": "input",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "layout.single_window_aspect_ratio": {
+    "type": "vec2",
+    "category": "layout",
+    "file": "keybinds.lua",
+    "default": "0x0"
+  },
+  "layout.single_window_aspect_ratio_tolerance": {
+    "type": "float",
+    "category": "layout",
+    "file": "keybinds.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "master.allow_small_split": {
+    "type": "bool",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "master.always_keep_position": {
+    "type": "bool",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "master.center_ignores_reserved": {
+    "type": "bool",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "master.center_master_fallback": {
+    "type": "string",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "master.drop_at_cursor": {
+    "type": "bool",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "master.mfact": {
+    "type": "float",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "master.new_on_active": {
+    "type": "string",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "master.new_on_top": {
+    "type": "bool",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "master.new_status": {
+    "type": "string",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "master.orientation": {
+    "type": "string",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "master.slave_count_for_center_master": {
+    "type": "int",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "master.smart_resizing": {
+    "type": "bool",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "master.special_scale_factor": {
+    "type": "float",
+    "category": "master",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "misc.allow_session_lock_restore": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.always_follow_on_dnd": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.animate_manual_resizes": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.animate_mouse_windowdragging": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.anr_missed_pings": {
+    "type": "int",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "misc.background_color": {
+    "type": "string",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "misc.close_special_on_empty": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.col.splash": {
+    "type": "string",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "misc.disable_autoreload": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.disable_hyprland_guiutils_check": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.disable_hyprland_logo": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.disable_scale_notification": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.disable_splash_rendering": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.disable_watchdog_warning": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.disable_xdg_env_checks": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.enable_anr_dialog": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.enable_swallow": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.exit_window_retains_fullscreen": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.focus_on_activate": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.font_family": {
+    "type": "string",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "misc.force_default_wallpaper": {
+    "type": "int",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "misc.initial_workspace_tracking": {
+    "type": "int",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "misc.key_press_enables_dpms": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.layers_hog_keyboard_focus": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.lockdead_screen_delay": {
+    "type": "int",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "misc.middle_click_paste": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.mouse_move_enables_dpms": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.mouse_move_focuses_monitor": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.name_vk_after_proc": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.on_focus_under_fullscreen": {
+    "type": "int",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "misc.render_unfocused_fps": {
+    "type": "int",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "misc.screencopy_force_8b": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "misc.session_lock_xray": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.size_limits_tiled": {
+    "type": "bool",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "misc.splash_font_family": {
+    "type": "string",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "misc.swallow_exception_regex": {
+    "type": "string",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "misc.swallow_regex": {
+    "type": "string",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "misc.vrr": {
+    "type": "int",
+    "category": "misc",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "opengl.nvidia_anti_flicker": {
+    "type": "bool",
+    "category": "opengl",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "quirks.prefer_hdr": {
+    "type": "int",
+    "category": "quirks",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "quirks.skip_non_kms_dmabuf_formats": {
+    "type": "bool",
+    "category": "quirks",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "render.cm_auto_hdr": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.cm_enabled": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "render.cm_sdr_eotf": {
+    "type": "string",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "render.commit_timing_enabled": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "render.ctm_animation": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.direct_scanout": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.expand_undersized_textures": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "render.fp16_sdr_tf": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.icc_vcgt_enabled": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "render.keep_unmodified_copy": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.new_render_scheduling": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "render.non_shader_cm": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.non_shader_cm_interop": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.send_content_type": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "render.use_fp16": {
+    "type": "int",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "render.use_shader_blur_blend": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "render.xp_mode": {
+    "type": "bool",
+    "category": "render",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "scrolling.column_width": {
+    "type": "float",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "scrolling.direction": {
+    "type": "string",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "scrolling.explicit_column_widths": {
+    "type": "string",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": ""
+  },
+  "scrolling.focus_fit_method": {
+    "type": "int",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  },
+  "scrolling.follow_focus": {
+    "type": "bool",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "scrolling.follow_min_visible": {
+    "type": "float",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "scrolling.fullscreen_on_one_column": {
+    "type": "bool",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "scrolling.wrap_focus": {
+    "type": "bool",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "scrolling.wrap_swapcol": {
+    "type": "bool",
+    "category": "scrolling",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "xwayland.create_abstract_socket": {
+    "type": "bool",
+    "category": "xwayland",
+    "file": "visuals.lua",
+    "default": false
+  },
+  "xwayland.enabled": {
+    "type": "bool",
+    "category": "xwayland",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "xwayland.force_zero_scaling": {
+    "type": "bool",
+    "category": "xwayland",
+    "file": "visuals.lua",
+    "default": true
+  },
+  "xwayland.use_nearest_neighbor": {
+    "type": "bool",
+    "category": "xwayland",
+    "file": "visuals.lua",
+    "default": true
+  }
+}

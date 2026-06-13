@@ -1,0 +1,459 @@
+-- ========================
+-- STATE MANAGEMENT
+-- ========================
+
+local DM = {
+    mainMod        = "SUPER",
+    rofi_open      = false,
+    current_layout = "dwindle",
+    is_dragging    = false,
+}
+
+local function shell_quote(s)
+    s = tostring(s or "")
+    return "'" .. s:gsub("'", "'\"'\"'") .. "'"
+end
+
+local function close_rofi()
+    hl.exec_cmd("pkill -x rofi || pkill -x rofi-wayland")
+    DM.rofi_open = false
+end
+
+-- Launches Rofi with a slide-in-from-bottom transition
+local function launch_rofi_slide()
+    hl.layer_rule({
+        name = "rofi-slide",
+        match = { namespace = "rofi" },
+        animation = "slide bottom",
+    })
+    hl.exec_cmd("rofi -show drun -click-to-exit")
+    DM.rofi_open = true
+end
+
+-- Launches Rofi with a standard, clean fade transition
+local function launch_rofi_fade()
+    hl.layer_rule({
+        name = "rofi-slide",
+        match = { namespace = "rofi" },
+        animation = "fade",
+    })
+    hl.exec_cmd("rofi -show drun -click-to-exit")
+    DM.rofi_open = true
+end
+
+local function toggle_rofi()
+    if DM.rofi_open then
+        close_rofi()
+    else
+        launch_rofi_fade()
+    end
+end
+
+-- ========================
+-- DYNAMIC COLORS IMPORT (v0.55 Lua)
+-- ========================
+
+local colors_path = os.getenv("HOME") .. "/.config/hypr/colors.lua"
+local has_colors, colors = pcall(dofile, colors_path)
+
+-- Safe defaults (Original Rosé Pine: Iris active, Overlay inactive)
+local active_border_color = "rgba(c4a7e7ff)"
+local inactive_border_color = "rgba(26233acc)"
+
+if has_colors and colors then
+    active_border_color = colors.primary or active_border_color
+    inactive_border_color = colors.muted or inactive_border_color
+end
+
+-- ========================
+-- MONITOR CONFIG
+-- ========================
+
+hl.monitor({
+    output   = "eDP-1",
+    mode     = "1920x1080@60",
+    position = "0x0",
+    scale    = 1.2, -- Restored your 1.5x fractional scale for the 1080p screen
+})
+
+-- ========================
+-- ENVIRONMENT VARIABLES
+-- ========================
+
+hl.env("MOZ_ENABLE_WAYLAND",          "1")
+hl.env("ELECTRON_OZONE_PLATRAM_HINT","auto")
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+hl.env("QT_QPA_PLATFORM",            "wayland;xcb")
+hl.env("GDK_BACKEND",                "wayland,x11,*")
+hl.env("XCURSOR_SIZE",               "24")
+
+-- ========================
+-- INPUT & LOOK
+-- ========================
+
+hl.config({
+    xwayland = {
+        force_zero_scaling = true, -- Stop compositor scaling to prevent blur and pixelation
+    },
+
+    input = {
+        kb_layout    = "hu",
+        follow_mouse = 1,
+
+        touchpad = {
+            natural_scroll = false,
+            tap_to_click   = true,
+        },
+    },
+
+    general = {
+        gaps_in     = 4,
+        gaps_out    = 8,
+        border_size = 2,
+
+        col = {
+            -- Dynamic colors parsed from active wallpaper (or default Rosé Pine if none)
+            active_border = {
+                colors = { active_border_color },
+                angle  = 0,
+            },
+            inactive_border = inactive_border_color,
+        },
+
+        layout = DM.current_layout,
+    },
+
+    decoration = {
+        rounding = 10,
+    },
+
+    -- Default options for the scrolling layout
+    scrolling = {
+        column_width = 0.9,
+        fullscreen_on_one_column = true,
+    }
+})
+
+-- ========================
+-- NOTIFICATION HELPERS
+-- ========================
+
+local function notify(title, body, urgency, timeout, replace_id)
+    urgency = urgency or "normal"
+    timeout = timeout or 3000
+
+    local cmd = "notify-send -u " .. urgency .. " -t " .. tostring(timeout)
+    if replace_id then
+        -- Appends Dunst and Mako replacement tags to prevent duplicating notifications
+        cmd = cmd .. " -h string:x-dunst-stack-tag:" .. tostring(replace_id)
+        cmd = cmd .. " -h string:x-canonical-private-synchronous:" .. tostring(replace_id)
+    end
+    cmd = cmd .. " " .. shell_quote(title) .. " " .. shell_quote(body)
+    hl.exec_cmd(cmd)
+end
+
+local function send_notif(urgency, title, body)
+    local cmd    = "notify-send -u " .. urgency .. " -t 0 -p " .. shell_quote(title) .. " " .. shell_quote(body)
+    local handle = io.popen(cmd)
+    local id     = nil
+    if handle then
+        id = handle:read("*l")
+        handle:close()
+    end
+    return id
+end
+
+local function dismiss_notif(id)
+    if id then
+        hl.exec_cmd("makoctl dismiss -n " .. tostring(id))
+    end
+end
+
+-- ========================
+-- CUSTOM LAYOUTS
+-- ========================
+
+hl.layout.register("columns", {
+    recalculate = function(ctx)
+        local n = #ctx.targets
+        if n == 0 then return end
+        for i, target in ipairs(ctx.targets) do
+            target:place(ctx:column(i, n))
+        end
+    end,
+})
+
+-- ========================
+-- KEYBINDS
+-- ========================
+
+hl.bind(DM.mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
+hl.bind(DM.mainMod .. " + Q", hl.dsp.window.close())
+hl.bind(DM.mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+
+-- Mouse window movement & resizing with drag state tracking
+hl.bind(DM.mainMod .. " + mouse:272", function()
+    DM.is_dragging = true
+    hl.dispatch(hl.dsp.window.drag())
+end, { mouse = true })
+
+hl.bind(DM.mainMod .. " + mouse:272", function()
+    DM.is_dragging = false
+end, { mouse = true, release = true })
+
+hl.bind(DM.mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Scroll / Dwindle Toggles
+local function toggle_scrolling_layout()
+    -- ALWAYS wipe the previous horizontally assigned gesture logic first before asserting the new one
+    hl.gesture({ fingers = 3, direction = "horizontal", action = "unset" })
+
+    if DM.current_layout == "dwindle" then
+        DM.current_layout = "scrolling"
+        hl.config({ general = { layout = "scrolling" } })
+        
+        -- Override gesture natively to scrub horizontally across full apps without exiting the scrolling tape
+        hl.gesture({ fingers = 3, direction = "horizontal", action = "scroll_move" })
+        notify("Layout Switched", "Switched to infinite-tape scrolling layout", "normal", 1500, "layout_switch")
+    else
+        DM.current_layout = "dwindle"
+        hl.config({ general = { layout = "dwindle" } })
+        
+        -- Override gesture cleanly back to cycling entire workspace grids
+        hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+        notify("Layout Switched", "Switched to standard dwindle layout", "normal", 1500, "layout_switch")
+    end
+end
+
+hl.bind("SUPER + SHIFT + T", toggle_scrolling_layout)
+hl.bind("SUPER + SHIFT + V", toggle_scrolling_layout)
+
+-- Window fullscreen controls
+hl.bind(DM.mainMod .. " + F11", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+hl.bind(DM.mainMod .. " + F",   hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+
+-- Audio controls
+hl.bind(DM.mainMod .. " + F1", hl.dsp.exec_cmd([[sh -c '
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then
+        notify-send -h string:x-dunst-stack-tag:volume -h string:x-canonical-private-synchronous:volume -a volume -c volume -t 1500 "Audio muted" "System audio has been muted"
+    else
+        vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '\''{printf("%.0f", $2 * 100)}'\'')
+        notify-send -h string:x-dunst-stack-tag:volume -h string:x-canonical-private-synchronous:volume -a volume -c volume -t 1500 -h int:value:"$vol" "Audio unmuted" "Current volume: ${vol}%"
+    fi
+']]))
+
+hl.bind(DM.mainMod .. " + F2", hl.dsp.exec_cmd([[sh -c '
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '\''{printf("%.0f", $2 * 100)}'\'')
+    notify-send -h string:x-dunst-stack-tag:volume -h string:x-canonical-private-synchronous:volume -a volume -c volume -t 1500 -h int:value:"$vol" "Volume decreased" "Current volume: ${vol}%"
+']]))
+
+hl.bind(DM.mainMod .. " + F3", hl.dsp.exec_cmd([[sh -c '
+    wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+    vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '\''{printf("%.0f", $2 * 100)}'\'')
+    notify-send -h string:x-dunst-stack-tag:volume -h string:x-canonical-private-synchronous:volume -a volume -c volume -t 1500 -h int:value:"$vol" "Volume increased" "Current volume: ${vol}%"
+']]))
+
+-- Bluetooth toggle
+hl.bind(DM.mainMod .. " + F10", hl.dsp.exec_cmd([[sh -c '
+    rfkill toggle bluetooth
+    sleep 0.1
+    if rfkill list bluetooth | grep -q "Soft blocked: yes"; then
+        notify-send -h string:x-dunst-stack-tag:bluetooth -h string:x-canonical-private-synchronous:bluetooth -a bluetooth -c bluetooth -t 1500 "Bluetooth" "Disabled"
+    else
+        notify-send -h string:x-dunst-stack-tag:bluetooth -h string:x-canonical-private-synchronous:bluetooth -a bluetooth -c bluetooth -t 1500 "Bluetooth" "Enabled"
+    fi
+']]))
+
+-- Super+Space toggles Rofi with fade transition
+hl.bind("SUPER + Space", function()
+    toggle_rofi()
+end)
+
+-- Screenshots
+hl.bind("Print",        hl.dsp.exec_cmd("grimblast --freeze copy screen && notify-send 'Screenshot' 'Saved'"), { auto_consuming = true })
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("grimblast --freeze copy area && notify-send 'Screenshot' 'Saved'"), { auto_consuming = true })
+
+-- Magnifier
+hl.bind(DM.mainMod .. " + Equal", function()
+    hl.config({ cursor = { zoom_factor = 2.0 } })
+end)
+
+hl.bind(DM.mainMod .. " + Minus", function()
+    hl.config({ cursor = { zoom_factor = 1.0 } })
+end)
+
+-- Workspace loop with active drag logic
+for i = 1, 5 do
+    hl.bind(DM.mainMod .. " + " .. i, function()
+        if DM.is_dragging then
+            hl.dispatch(hl.dsp.window.move({ workspace = i }))
+        else
+            hl.dispatch(hl.dsp.focus({ workspace = i }))
+        end
+    end)
+
+    hl.bind(DM.mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+end
+
+-- ========================
+-- GESTURES
+-- ========================
+
+-- Base Default State: Establish Workspace Cycling. 
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+
+hl.gesture({
+    fingers   = 3,
+    direction = "up",
+    action    = function()
+        if not DM.rofi_open then launch_rofi_slide() end
+    end,
+})
+
+hl.gesture({
+    fingers   = 3,
+    direction = "down",
+    action    = function()
+        if DM.rofi_open then close_rofi() end
+    end,
+})
+
+-- ========================
+-- WINDOW EVENTS & RULES
+-- ========================
+
+-- Dynamic default rule for Rofi transition
+hl.layer_rule({
+    name = "rofi-slide",
+    match = { 
+        namespace = "rofi" 
+    },
+    animation = "fade",
+})
+
+-- Floating rules for the volume slider popup (v0.55 Lua syntax)
+hl.window_rule({
+    name = "volume-popup-rules",
+    match = { 
+        title = "VolumePopup" 
+    },
+    float = true,
+    pin = true,
+    border_size = 0,
+    no_shadow = true,
+    stay_focused = true,
+    move = { "cursor_x - 30", "cursor_y - 20" },
+})
+
+-- File picker dialogs
+hl.window_rule({
+    match  = { class = "xdg-desktop-portal-gtk" },
+    float  = true,
+    size   = { 800, 500 },
+    center = true,
+})
+
+-- Firefox save dialogs
+hl.window_rule({
+    match  = { class = "firefox", title = "Save Image" },
+    float  = true,
+    size   = { 800, 500 },
+    center = true,
+})
+
+-- pavucontrol (right-click volume)
+hl.window_rule({
+    match  = { class = "pavucontrol" },
+    float  = true,
+    size   = { 700, 450 },
+    center = true,
+})
+
+-- blueman device manager (right-click bluetooth)
+hl.window_rule({
+    match  = { class = "blueman-manager" },
+    float  = true,
+    size   = { 600, 450 },
+    center = true,
+})
+
+-- nmtui in kitty (left-click network)
+hl.window_rule({
+    match  = { class = "kitty", title = "nmtui" },
+    float  = true,
+    size   = { 600, 400 },
+    center = true,
+})
+
+-- nm-connection-editor (right-click network)
+hl.window_rule({
+    match  = { class = "nm-connection-editor" },
+    float  = true,
+    size   = { 700, 500 },
+    center = true,
+})
+
+-- ========================
+-- AUTOSTART & LAPTOP
+-- ========================
+
+hl.on("hyprland.start", function()
+    -- Explicitly terminate pre-installed Dunst or SwayNC instances to prevent DBus locking Mako
+    hl.exec_cmd("pkill dunst || pkill swaync || pkill mako")
+    hl.exec_cmd("mako")
+    hl.exec_cmd("waybar")
+    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    
+    -- Dynamically inject X11 DPI at startup (96 * 1.2 = 115.2 DPI) to force perfect, sharp 1.2x native scaling in XWayland
+    hl.exec_cmd("echo 'Xft.dpi: 115.2' | xrdb -merge")
+end)
+
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
+
+-- ========================
+-- MONITOR & SCREENSHARE EVENTS
+-- ========================
+
+hl.on("monitor.added",   function(m) notify("External display connected",    m.name, "normal",   3000, 991052) end)
+hl.on("monitor.removed", function(m) notify("External display disconnected",  m.name, "normal",   3000, 991052) end)
+
+hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("kitty -- pacseek"))
+
+-- Brightness Up: Repeats when held, works even on lockscreen, triggers tactile notification
+hl.bind("SUPER + F6", hl.dsp.exec_cmd([[sh -c '
+    brightnessctl set 5%+
+    pct=$(brightnessctl -m | cut -d, -f4 | tr -d "%")
+    notify-send -h string:x-dunst-stack-tag:brightness -h string:x-canonical-private-synchronous:brightness -a brightness -c brightness -t 1500 -h int:value:"$pct" "Brightness increased" "Current brightness: ${pct}%"
+']]), {
+    repeating = true,
+    locked = true
+})
+
+-- Brightness Down: Repeats when held, works even on lockscreen, triggers tactile notification
+hl.bind("SUPER + F5", hl.dsp.exec_cmd([[sh -c '
+    brightnessctl set 5%-
+    pct=$(brightnessctl -m | cut -d, -f4 | tr -d "%")
+    notify-send -h string:x-dunst-stack-tag:brightness -h string:x-canonical-private-synchronous:brightness -a brightness -c brightness -t 1500 -h int:value:"$pct" "Brightness decreased" "Current brightness: ${pct}%"
+']]), {
+    repeating = true,
+    locked = true
+})
+
+-- Microphone Mute Toggle: Triggers tactile mako notification on SUPER + F4
+hl.bind("SUPER + F4", hl.dsp.exec_cmd([[sh -c '
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    sleep 0.05
+    if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -qi "MUTED"; then
+        notify-send -h string:x-dunst-stack-tag:mic -h string:x-canonical-private-synchronous:mic -a mic -c mic -t 1500 "Microphone inactive" "Input is now disabled"
+    else
+        notify-send -h string:x-dunst-stack-tag:mic -h string:x-canonical-private-synchronous:mic -a mic -c mic -t 1500 "Microphone active" "Input is now enabled"
+    fi
+']]))
+
+hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/settings/sidebar.sh"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("python3 " .. os.getenv("HOME") .. "/.config/hypr/settings/main.py"))
+
+pcall(require, "settings.overrides")
