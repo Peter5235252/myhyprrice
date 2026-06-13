@@ -168,7 +168,7 @@ cp -r myhyprrice/* ~/.config/hypr/
 - `scale = 1.2` -- adjust for your screen size and preference
 - `kb_layout = "hu"` -- change to your keyboard layout (e.g. `"us"`)
 
-5. **Restart Hyprland.** The config hot-reloads the moment you save any `.lua` file, so changes take effect instantly once you're running.
+5. **Enjoy.** The config hot-reloads the moment you save any `.lua` file, so changes take effect instantly once you're running.
 
 ---
 
