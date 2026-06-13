@@ -135,11 +135,11 @@ Make sure these are installed before you start:
 - wireplumber (`wpctl`)
 - pacseek (optional)
 
-On Arch / CachyOS:
+On Arch-based distributions:
 
 ```bash
 sudo pacman -S hyprland waybar kitty rofi mako hyprpaper dolphin brightnessctl wireplumber
-yay -S grimblast-git pacseek
+yay/paru -S grimblast-git pacseek
 ```
 
 ### Steps
