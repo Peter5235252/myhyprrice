@@ -3,13 +3,7 @@
 A personal Hyprland rice for the ThinkPad T480, built on the **Rosé Pine** color scheme. Written entirely in **Lua** (Hyprland 0.55+).
 
 > No hyprlang. No shell-script spaghetti. Just clean, modular Lua config.
-
----
-
-## Screenshots
-
-*Add a screenshot here once you have one -- drag it into the GitHub repo editor or use `git add`.*
-
+> 
 ---
 
 ## Stack
