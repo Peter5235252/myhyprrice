@@ -1,0 +1,14 @@
+configuration {
+    modi:                "drun,run,window";
+    show-icons:          true;
+    icon-theme:          "Papirus-Dark";
+    display-drun:        "";
+    drun-display-format: "{name}";
+    font:                "JetBrainsMono Nerd Font 13";
+    click-to-exit:       true;
+    fixed-num-lines:     false;
+    hide-scrollbar:      true;
+    sidebar-mode:        false;
+}
+
+@theme "rosepine-spotlight"

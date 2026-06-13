@@ -1,0 +1,131 @@
+/* ==============================================
+   Rosé Pine — Waybar Floating Pill Bar
+   ============================================== */
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @surface;
+    border: 1.5px solid @highlight-med;
+    border-radius: 12px;
+    padding: 4px 10px;
+    margin: 0 4px;
+}
+
+/* ── Workspaces ── */
+#workspaces {
+    background: transparent;
+    padding: 0 2px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @muted;
+    border-radius: 8px;
+    padding: 2px 10px;
+    margin: 0 2px;
+    min-width: 0;
+    transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+    background: @overlay;
+    color: @subtle;
+}
+
+#workspaces button.active {
+    background: @overlay;
+    color: @iris;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background: @love;
+    color: @base;
+}
+
+/* ── Clock ── */
+#clock {
+    color: @text;
+    padding: 0 6px;
+}
+
+/* ── Right modules shared ── */
+#pulseaudio,
+#battery,
+#bluetooth,
+#network,
+#tray,
+#custom-sidebar {
+    color: @subtle;
+    padding: 0 8px;
+}
+
+#pulseaudio:hover,
+#battery:hover,
+#bluetooth:hover,
+#network:hover,
+#custom-sidebar:hover {
+    color: @text;
+}
+
+/* ── Audio ── */
+#pulseaudio.muted {
+    color: @muted;
+}
+
+/* ── Battery states ── */
+#battery.charging {
+    color: @foam;
+}
+
+#battery.warning:not(.charging) {
+    color: @gold;
+}
+
+#battery.critical:not(.charging) {
+    color: @love;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    to { opacity: 0.4; }
+}
+
+/* ── Network ── */
+#network.disconnected {
+    color: @muted;
+}
+
+/* ── Tray ── */
+#tray {
+    padding: 0 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @love;
+    border-radius: 6px;
+}
+
+/* User overrides */
+@import "custom.css";

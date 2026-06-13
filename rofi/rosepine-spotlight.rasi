@@ -1,0 +1,128 @@
+/* =========================================================================
+   Redesigned Rosé Pine — Premium Hacker Spotlight Theme for Rofi
+   ========================================================================= */
+
+@import "colors.rasi"
+
+* {
+    /* Wiring */
+    background-color:   transparent;
+    text-color:         @text;
+    font:               "JetBrainsMono Nerd Font 13";
+}
+
+window {
+    background-color:   @base;
+    border:             2px;
+    border-color:       @iris;
+    border-radius:      24px;
+    width:              640px;
+    padding:            20px;
+    location:           center;
+    anchor:             center;
+    x-offset:           0px;
+    y-offset:           0px;
+}
+
+mainbox {
+    background-color:   transparent;
+    spacing:            16px;
+    children:           [ inputbar, listview ];
+}
+
+inputbar {
+    background-color:   @surface;
+    border:             1.5px;
+    border-color:       @highlight-med;
+    border-radius:      14px;
+    padding:            14px 18px;
+    spacing:            14px;
+    children:           [ textbox-prompt-colon, entry ];
+}
+
+textbox-prompt-colon {
+    expand:             false;
+    str:                "󰍉";  /* Magnifying glass icon */
+    text-color:         @iris;
+    vertical-align:     0.5;
+}
+
+entry {
+    background-color:   transparent;
+    text-color:         @text;
+    placeholder:        "Search apps, files, commands…";
+    placeholder-color:  @muted;
+    cursor:             text;
+    vertical-align:     0.5;
+}
+
+listview {
+    background-color:   transparent;
+    padding:            4px 0px 0px 0px;
+    spacing:            8px;
+    lines:              6;
+    scrollbar:          false;
+    border:             0;
+}
+
+element {
+    background-color:   transparent;
+    border-radius:      12px;
+    padding:            10px 14px;
+    spacing:            16px;
+    orientation:        horizontal;
+    children:           [ element-icon, element-text ];
+}
+
+element normal.normal {
+    background-color:   transparent;
+    text-color:         @subtle;
+}
+
+element alternate.normal {
+    background-color:   transparent;
+    text-color:         @subtle;
+}
+
+element selected.normal {
+    background-color:   @overlay;
+    border:             1.5px;
+    border-color:       @iris;
+}
+
+element-icon {
+    background-color:   @highlight-low;
+    border-radius:      10px;
+    size:               36px;
+    padding:            6px;
+}
+
+element selected.normal element-icon {
+    background-color:   @highlight-med;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         @subtle;
+    vertical-align:     0.5;
+}
+
+element selected.normal element-text {
+    text-color:         @text;
+    font-weight:        bold;
+}
+
+/* No results / System messages */
+message {
+    background-color:   @highlight-low;
+    border-radius:      12px;
+    padding:            12px 16px;
+}
+
+textbox {
+    background-color:   transparent;
+    text-color:         @muted;
+}
+
+/* User overrides */
+@import "custom.rasi"

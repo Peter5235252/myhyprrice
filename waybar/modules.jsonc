@@ -1,0 +1,92 @@
+{
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %d %B %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "today": "<span color='#eb6f92'><b>{}</b></span>"
+            }
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "python /home/csemanpeter/.config/waybar/volume-popup.py",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "tooltip": false
+    },
+
+    "battery#bat0": {
+        "bat": "BAT0",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": false
+    },
+
+    "battery#bat1": {
+        "bat": "BAT1",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": false
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱 {device_alias}",
+        "format-disabled": "󰂲",
+        "on-click": "rfkill toggle bluetooth",
+        "on-click-right": "blueman-manager",
+        "tooltip-format": "{controller_alias}\n{num_connections} connected"
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 Wired",
+        "format-disconnected": "󰤭 Offline",
+        "tooltip-format-wifi": "{signalStrength}% signal\n{ipaddr}",
+        "on-click": "kitty --title nmtui sh -c 'NEWT_COLORS=\"root=white,#191724 window=#1f1d2e,#1f1d2e border=#c4a7e7,#1f1d2e title=#c4a7e7,#1f1d2e textbox=#e0def4,#26233a button=#1f1d2e,#908caa button_active=#191724,#ebbcba actbutton=#191724,#ebbcba checkbox=#c4a7e7,#1f1d2e actcheckbox=#191724,#ebbcba entry=#e0def4,#26233a listbox=#e0def4,#1f1d2e actlistbox=#191724,#ebbcba\" nmtui'",
+        "on-click-right": "nm-connection-editor"
+    },
+
+    "tray": {
+        "spacing": 8,
+        "icon-size": 16
+    },
+
+    "custom/sidebar": {
+        "format": "    ",
+        "on-click": "/home/csemanpeter/.config/hypr/settings/sidebar.sh",
+        "tooltip": false
+    }
+}

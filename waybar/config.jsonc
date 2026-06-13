@@ -1,0 +1,33 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 10,
+    "margin-left": 16,
+    "margin-right": 16,
+    "margin-bottom": 0,
+    "spacing": 6,
+    "height": 40,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "battery#bat0",
+        "battery#bat1",
+        "bluetooth",
+        "network",
+        "tray",
+        "custom/sidebar"
+    ],
+
+    // Pull the module definitions cleanly from our new modules file
+    "include": [
+        "/home/csemanpeter/.config/waybar/modules.jsonc"
+    ]
+}
